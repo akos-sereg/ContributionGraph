@@ -14,3 +14,5 @@ ContributionList data = new ContributionList {
 
 this.calendarView1.DataSource = data;
 ```
+
+![Contribution Graph](https://raw.githubusercontent.com/akos-sereg/ContributionGraph/master/ContributionGraph/Docs/Screenshot.png "Screenshot")
