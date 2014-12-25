@@ -91,7 +91,7 @@ namespace ContributionGraph
         private new void Resize()
         {
             this.Width = (52 * BOX_SIZE) + (MARGIN * 2 * 52) + 5;
-            this.Height = (7 * BOX_SIZE) + (MARGIN * 2 * 7) + 5 + 20;
+            this.Height = (7 * BOX_SIZE) + (MARGIN * 2 * 7) + 5 + this.cellMessage.Height;
 
             this.calendarTable.Width = (52 * BOX_SIZE) + (MARGIN * 2 * 52) + 5;
             this.calendarTable.Height = (7 * BOX_SIZE) + (MARGIN * 2 * 7) + 5;

@@ -41,8 +41,8 @@ namespace ContributionGraph.View
         void DayPanel_MouseEnter(object sender, EventArgs e)
         {
             this._cellMessage.Text = string.Format("{0}: {1}", 
-                this.Date.ToString("yyyy-MM-dd"), 
-                (this.Contribution == null ? "no contribution" : string.Format("{0} contribution{1}", this.Contribution.ContributionCount, this.Contribution.ContributionCount > 1 ? "s" : string.Empty)));
+                this.Date.ToString("yyyy MMM d"), 
+                (this.Contribution == null ? "no contribution" : this.Contribution.ToString()));
         }
     }
 }
