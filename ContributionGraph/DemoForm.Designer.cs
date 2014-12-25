@@ -37,10 +37,13 @@
             this.calendarView1.BackColor = System.Drawing.Color.White;
             this.calendarView1.ColorProvider = discreteWeightedColorProvider1;
             this.calendarView1.DataSource = null;
+            this.calendarView1.DisplayedWeeks = 53;
             this.calendarView1.EndDate = new System.DateTime(2014, 12, 25, 13, 35, 0, 589);
             this.calendarView1.Location = new System.Drawing.Point(12, 12);
+            this.calendarView1.MaximumSize = new System.Drawing.Size(621, 131);
+            this.calendarView1.MinimumSize = new System.Drawing.Size(621, 131);
             this.calendarView1.Name = "calendarView1";
-            this.calendarView1.Size = new System.Drawing.Size(754, 142);
+            this.calendarView1.Size = new System.Drawing.Size(621, 131);
             this.calendarView1.TabIndex = 0;
             // 
             // DemoForm

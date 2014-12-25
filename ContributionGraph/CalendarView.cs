@@ -43,8 +43,9 @@ namespace ContributionGraph
         
         public CalendarView()
         {
-            InitializeComponent();
             SetDefaults();
+
+            InitializeComponent();
             InitializeLayout();
         }
 
@@ -130,8 +131,14 @@ namespace ContributionGraph
             int headerMonthLabelHeight = 15;
             int padding = 5;
 
-            this.Width = ((this.DisplayedWeeks + 1) * BOX_SIZE) + (MARGIN * 2 * (this.DisplayedWeeks + 1)) + padding;
-            this.Height = (7 * BOX_SIZE) + (MARGIN * 2 * 7) + padding + this.cellMessage.Height + headerMonthLabelHeight;
+            int width = ((this.DisplayedWeeks + 1) * BOX_SIZE) + (MARGIN * 2 * (this.DisplayedWeeks + 1)) + padding;
+            int height = (7 * BOX_SIZE) + (MARGIN * 2 * 7) + padding + this.cellMessage.Height + headerMonthLabelHeight;
+
+            this.MinimumSize = new Size(width, height);
+            this.MaximumSize = new Size(width, height);
+
+            this.Width = width;
+            this.Height = height;
 
             this.calendarTable.Width = ((this.DisplayedWeeks + 1) * BOX_SIZE) + (MARGIN * 2 * (this.DisplayedWeeks + 1)) + padding;
             this.calendarTable.Height = (7 * BOX_SIZE) + (MARGIN * 2 * 7) + padding;
