@@ -20,7 +20,7 @@ namespace ContributionGraph
     public partial class CalendarView : UserControl
     {
         public static readonly Color DEFAULT_COLOR = Color.FromArgb(240, 240, 240);
-        private readonly int DISPLAYED_WEEKS = 52;
+        private readonly int DISPLAYED_WEEKS = 53;
         private readonly int MARGIN = 1;
         private readonly int BOX_SIZE = 12;
 
@@ -39,24 +39,35 @@ namespace ContributionGraph
             }
         }
 
-        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+        private DateTime startDate { get; set; }
 
         public CalendarView()
         {
             InitializeComponent();
 
             ColorProvider = new DiscreteWeightedColorProvider();
-            StartDate = DateTime.Now.AddDays(-365);
-            DateTime originalStartDate = StartDate;
+            EndDate = DateTime.Now;
+            startDate = EndDate.AddDays(-7 * DISPLAYED_WEEKS);
+            DateTime originalStartDate = startDate;
 
             // Adjust StartDate to the last Monday
-            while (StartDate.DayOfWeek != DayOfWeek.Monday)
+            while (startDate.DayOfWeek != DayOfWeek.Monday)
             {
-                StartDate = StartDate.AddDays(-1);
+                startDate = startDate.AddDays(-1);
             }
 
             // Initialize Calendar Component
             // -----------------------------------------------------------------
+            this.calendarTable.ColumnCount = DISPLAYED_WEEKS;
+            this.calendarTable.ColumnStyles.Clear();
+            for (int i = 0; i < DISPLAYED_WEEKS; i++)
+            {
+                this.calendarTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            }
+
+            this.calendarTable.RowCount = 7;
+
             this.cellMessage.Text = string.Empty;
 
             this.BackColor = Color.White;
@@ -67,7 +78,7 @@ namespace ContributionGraph
             {
                 for (int dayOfWeek = 0; dayOfWeek != 7; dayOfWeek++)
                 {
-                    DateTime dayPanelDate = this.StartDate.AddDays(startDay);
+                    DateTime dayPanelDate = this.startDate.AddDays(startDay);
                     DayPanel dayPanel = new DayPanel(this.cellMessage, BOX_SIZE, MARGIN, DEFAULT_COLOR, dayPanelDate);
 
                     if (originalStartDate > dayPanel.Date)
@@ -90,10 +101,10 @@ namespace ContributionGraph
 
         private new void Resize()
         {
-            this.Width = (52 * BOX_SIZE) + (MARGIN * 2 * 52) + 5;
+            this.Width = (DISPLAYED_WEEKS * BOX_SIZE) + (MARGIN * 2 * DISPLAYED_WEEKS) + 5;
             this.Height = (7 * BOX_SIZE) + (MARGIN * 2 * 7) + 5 + this.cellMessage.Height;
 
-            this.calendarTable.Width = (52 * BOX_SIZE) + (MARGIN * 2 * 52) + 5;
+            this.calendarTable.Width = (DISPLAYED_WEEKS * BOX_SIZE) + (MARGIN * 2 * DISPLAYED_WEEKS) + 5;
             this.calendarTable.Height = (7 * BOX_SIZE) + (MARGIN * 2 * 7) + 5;
 
             for (int i = 0; i != 7; i++)
