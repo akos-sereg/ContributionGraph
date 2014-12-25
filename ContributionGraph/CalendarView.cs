@@ -70,9 +70,9 @@ namespace ContributionGraph
                 startDate = startDate.AddDays(-1);
             }
 
-            this.calendarTable.ColumnCount = this.DisplayedWeeks;
+            this.calendarTable.ColumnCount = this.DisplayedWeeks + 1;
             this.calendarTable.ColumnStyles.Clear();
-            for (int i = 0; i < this.DisplayedWeeks; i++)
+            for (int i = 0; i < this.DisplayedWeeks + 1; i++)
             {
                 this.calendarTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             }
@@ -84,7 +84,7 @@ namespace ContributionGraph
             // Fill Calendar Table with colored panels
             int startDay = 0;
             List<string> displayedMonths = new List<string>();
-            for (int week = 0; week != this.DisplayedWeeks; week++)
+            for (int week = 0; week != this.DisplayedWeeks + 1; week++)
             {
                 DateTime dayPanelDate;
                 DayPanel firstDayPanel = null;
@@ -130,10 +130,10 @@ namespace ContributionGraph
             int headerMonthLabelHeight = 15;
             int padding = 5;
 
-            this.Width = (this.DisplayedWeeks * BOX_SIZE) + (MARGIN * 2 * this.DisplayedWeeks) + padding;
+            this.Width = ((this.DisplayedWeeks + 1) * BOX_SIZE) + (MARGIN * 2 * (this.DisplayedWeeks + 1)) + padding;
             this.Height = (7 * BOX_SIZE) + (MARGIN * 2 * 7) + padding + this.cellMessage.Height + headerMonthLabelHeight;
 
-            this.calendarTable.Width = (this.DisplayedWeeks * BOX_SIZE) + (MARGIN * 2 * this.DisplayedWeeks) + padding;
+            this.calendarTable.Width = ((this.DisplayedWeeks + 1) * BOX_SIZE) + (MARGIN * 2 * (this.DisplayedWeeks + 1)) + padding;
             this.calendarTable.Height = (7 * BOX_SIZE) + (MARGIN * 2 * 7) + padding;
 
             for (int i = 0; i != 7; i++)

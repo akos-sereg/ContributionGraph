@@ -31,6 +31,11 @@ namespace ContributionGraph.View
 
             this.MouseEnter += DayPanel_MouseEnter;
             this.MouseLeave += DayPanel_MouseLeave;
+
+            if (this.Date.ToString("yyyy-MM-dd").Equals(DateTime.Now.ToString("yyyy-MM-dd")))
+            {
+                this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            }
         }
 
         void DayPanel_MouseLeave(object sender, EventArgs e)
