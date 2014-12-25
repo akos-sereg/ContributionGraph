@@ -46,11 +46,11 @@
   <ItemGroup>
     <Compile Include="Controller\DiscreteWeightedColorProvider.cs" />
     <Compile Include="Controller\IColorProvider.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="DemoForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="DemoForm.Designer.cs">
+      <DependentUpon>DemoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\ContributionItem.cs" />
     <Compile Include="Model\ContributionList.cs" />
@@ -66,8 +66,8 @@
     <Compile Include="View\DayPanel.cs">
       <SubType>Component</SubType>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="DemoForm.resx">
+      <DependentUpon>DemoForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
