@@ -57,14 +57,10 @@ namespace ContributionGraph
 
             // Initialize Calendar Component
             // -----------------------------------------------------------------
+            this.cellMessage.Text = string.Empty;
+
             this.BackColor = Color.White;
-            this.Width = (52 * BOX_SIZE) + (MARGIN * 2 * 52) + 5;
-            this.Height = (7 * BOX_SIZE) + (MARGIN * 2 * 7) + 5;
-
-            this.calendarTable.Width = (52 * BOX_SIZE) + (MARGIN * 2 * 52) + 5;
-            this.calendarTable.Height = (7 * BOX_SIZE) + (MARGIN * 2 * 7) + 5;
-            this.calendarTable.CellBorderStyle = TableLayoutPanelCellBorderStyle.None;
-
+            
             // Fill Calendar Table with colored panels
             int startDay = 0;
             for (int week = 0; week != DISPLAYED_WEEKS; week++)
@@ -72,7 +68,7 @@ namespace ContributionGraph
                 for (int dayOfWeek = 0; dayOfWeek != 7; dayOfWeek++)
                 {
                     DateTime dayPanelDate = this.StartDate.AddDays(startDay);
-                    DayPanel dayPanel = new DayPanel(BOX_SIZE, MARGIN, DEFAULT_COLOR, dayPanelDate);
+                    DayPanel dayPanel = new DayPanel(this.cellMessage, BOX_SIZE, MARGIN, DEFAULT_COLOR, dayPanelDate);
 
                     if (originalStartDate > dayPanel.Date)
                     {
@@ -85,16 +81,25 @@ namespace ContributionGraph
 
                 this.calendarTable.ColumnStyles[week].SizeType = SizeType.AutoSize;
             }
+        }
+
+        private void CalendarView_Load(object sender, EventArgs e)
+        {
+            this.Resize();
+        }
+
+        private new void Resize()
+        {
+            this.Width = (52 * BOX_SIZE) + (MARGIN * 2 * 52) + 5;
+            this.Height = (7 * BOX_SIZE) + (MARGIN * 2 * 7) + 5 + 20;
+
+            this.calendarTable.Width = (52 * BOX_SIZE) + (MARGIN * 2 * 52) + 5;
+            this.calendarTable.Height = (7 * BOX_SIZE) + (MARGIN * 2 * 7) + 5;
 
             for (int i = 0; i != 7; i++)
             {
                 this.calendarTable.RowStyles[i].SizeType = SizeType.AutoSize;
             }
-        }
-
-        private void CalendarView_Load(object sender, EventArgs e)
-        {
-            
         }
 
         private void Draw()
@@ -109,6 +114,7 @@ namespace ContributionGraph
                 DayPanel dayPanel = DayPanelFor(item.Date);
                 if (dayPanel != null)
                 {
+                    dayPanel.Contribution = item;
                     dayPanel.BackColor = ColorProvider.GetColor(item, this.DataSource);
                 }
             }

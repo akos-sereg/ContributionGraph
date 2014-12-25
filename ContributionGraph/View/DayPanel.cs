@@ -5,15 +5,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ContributionGraph.Model;
 
 namespace ContributionGraph.View
 {
     public class DayPanel : Panel
     {
+        private Label _cellMessage;
+
+        public ContributionItem Contribution { get; set; }
+
         public DateTime Date { get; set; }
 
-        public DayPanel(int boxSize, int margin, Color color, DateTime date)
+        public DayPanel(Label cellMessage, int boxSize, int margin, Color color, DateTime date)
         {
+            this._cellMessage = cellMessage;
+
             this.BackColor = color;
             this.Margin = new Padding(margin);
             this.Width = boxSize;
@@ -21,6 +28,21 @@ namespace ContributionGraph.View
             this.AutoSize = false;
 
             this.Date = date;
+
+            this.MouseEnter += DayPanel_MouseEnter;
+            this.MouseLeave += DayPanel_MouseLeave;
+        }
+
+        void DayPanel_MouseLeave(object sender, EventArgs e)
+        {
+            this._cellMessage.Text = string.Empty;
+        }
+
+        void DayPanel_MouseEnter(object sender, EventArgs e)
+        {
+            this._cellMessage.Text = string.Format("{0}: {1}", 
+                this.Date.ToString("yyyy-MM-dd"), 
+                (this.Contribution == null ? "no contribution" : string.Format("{0} contribution{1}", this.Contribution.ContributionCount, this.Contribution.ContributionCount > 1 ? "s" : string.Empty)));
         }
     }
 }

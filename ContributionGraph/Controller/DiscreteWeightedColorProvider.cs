@@ -21,9 +21,9 @@ namespace ContributionGraph.Controller
         {
             var color = CalendarView.DEFAULT_COLOR;
 
-            Thresholds.OrderByDescending(x => x.Key).ToList().ForEach(x => 
+            Thresholds.OrderBy(x => x.Key).ToList().ForEach(x => 
                 {
-                    if (x.Key > contributionItem.ContributionCount)
+                    if (contributionItem.ContributionCount > x.Key)
                     {
                         color = x.Value;
                     }
