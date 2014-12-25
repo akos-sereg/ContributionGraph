@@ -87,7 +87,7 @@
             this.calendarTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.calendarTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.calendarTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 21F));
-            this.calendarTable.Location = new System.Drawing.Point(3, 3);
+            this.calendarTable.Location = new System.Drawing.Point(3, 20);
             this.calendarTable.Name = "calendarTable";
             this.calendarTable.RowCount = 7;
             this.calendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
@@ -97,7 +97,7 @@
             this.calendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.calendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.calendarTable.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.calendarTable.Size = new System.Drawing.Size(1041, 136);
+            this.calendarTable.Size = new System.Drawing.Size(1041, 138);
             this.calendarTable.TabIndex = 0;
             // 
             // cellMessage
