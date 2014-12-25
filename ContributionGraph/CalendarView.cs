@@ -17,7 +17,6 @@ namespace ContributionGraph
     public partial class CalendarView : UserControl
     {
         public static readonly Color DEFAULT_COLOR = Color.FromArgb(240, 240, 240);
-        private readonly int DISPLAYED_WEEKS = 53;
         private readonly int MARGIN = 1;
         private readonly int BOX_SIZE = 12;
 
@@ -38,6 +37,8 @@ namespace ContributionGraph
             }
         }
 
+        public int DisplayedWeeks { get; set; }
+
         public DateTime EndDate { get; set; }
         
         public CalendarView()
@@ -56,11 +57,12 @@ namespace ContributionGraph
         {
             ColorProvider = new DiscreteWeightedColorProvider();
             EndDate = DateTime.Now;
+            DisplayedWeeks = 53;
         }
 
         protected void InitializeLayout()
         {
-            DateTime startDate = EndDate.AddDays(-7 * DISPLAYED_WEEKS);
+            DateTime startDate = EndDate.AddDays(-7 * this.DisplayedWeeks);
             DateTime originalStartDate = startDate;
 
             while (startDate.DayOfWeek != DayOfWeek.Monday)
@@ -68,9 +70,9 @@ namespace ContributionGraph
                 startDate = startDate.AddDays(-1);
             }
 
-            this.calendarTable.ColumnCount = DISPLAYED_WEEKS;
+            this.calendarTable.ColumnCount = this.DisplayedWeeks;
             this.calendarTable.ColumnStyles.Clear();
-            for (int i = 0; i < DISPLAYED_WEEKS; i++)
+            for (int i = 0; i < this.DisplayedWeeks; i++)
             {
                 this.calendarTable.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             }
@@ -82,7 +84,7 @@ namespace ContributionGraph
             // Fill Calendar Table with colored panels
             int startDay = 0;
             List<string> displayedMonths = new List<string>();
-            for (int week = 0; week != DISPLAYED_WEEKS; week++)
+            for (int week = 0; week != this.DisplayedWeeks; week++)
             {
                 DateTime dayPanelDate;
                 DayPanel firstDayPanel = null;
@@ -128,10 +130,10 @@ namespace ContributionGraph
             int headerMonthLabelHeight = 15;
             int padding = 5;
 
-            this.Width = (DISPLAYED_WEEKS * BOX_SIZE) + (MARGIN * 2 * DISPLAYED_WEEKS) + padding;
+            this.Width = (this.DisplayedWeeks * BOX_SIZE) + (MARGIN * 2 * this.DisplayedWeeks) + padding;
             this.Height = (7 * BOX_SIZE) + (MARGIN * 2 * 7) + padding + this.cellMessage.Height + headerMonthLabelHeight;
 
-            this.calendarTable.Width = (DISPLAYED_WEEKS * BOX_SIZE) + (MARGIN * 2 * DISPLAYED_WEEKS) + padding;
+            this.calendarTable.Width = (this.DisplayedWeeks * BOX_SIZE) + (MARGIN * 2 * this.DisplayedWeeks) + padding;
             this.calendarTable.Height = (7 * BOX_SIZE) + (MARGIN * 2 * 7) + padding;
 
             for (int i = 0; i != 7; i++)
@@ -161,7 +163,7 @@ namespace ContributionGraph
         private DayPanel DayPanelFor(DateTime dateTime)
         {
             DayPanel dayPanel = null;
-            for (int week = 0; week != DISPLAYED_WEEKS; week++)
+            for (int week = 0; week != this.DisplayedWeeks; week++)
             {
                 for (int dayOfWeek = 0; dayOfWeek != 7; dayOfWeek++)
                 {
