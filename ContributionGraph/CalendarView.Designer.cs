@@ -104,7 +104,7 @@
             // 
             this.cellMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.cellMessage.AutoSize = true;
-            this.cellMessage.Location = new System.Drawing.Point(-3, 177);
+            this.cellMessage.Location = new System.Drawing.Point(3, 161);
             this.cellMessage.Name = "cellMessage";
             this.cellMessage.Size = new System.Drawing.Size(79, 13);
             this.cellMessage.TabIndex = 1;

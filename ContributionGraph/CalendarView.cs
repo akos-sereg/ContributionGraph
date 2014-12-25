@@ -37,7 +37,20 @@ namespace ContributionGraph
             }
         }
 
-        public int DisplayedWeeks { get; set; }
+        private int _displayedWeeks;
+        public int DisplayedWeeks
+        {
+            get
+            {
+                return _displayedWeeks;
+            }
+            set
+            {
+                this._displayedWeeks = value;
+                this.InitializeLayout();
+                this.Resize();
+            }
+        }
 
         public DateTime EndDate { get; set; }
         
@@ -45,13 +58,11 @@ namespace ContributionGraph
         {
             SetDefaults();
 
-            InitializeComponent();
             InitializeLayout();
         }
 
         private void CalendarView_Load(object sender, EventArgs e)
         {
-            this.Resize();
         }
 
         protected void SetDefaults()
@@ -63,6 +74,9 @@ namespace ContributionGraph
 
         protected void InitializeLayout()
         {
+            this.Controls.Clear();
+            this.InitializeComponent();
+
             DateTime startDate = EndDate.AddDays(-7 * this.DisplayedWeeks);
             DateTime originalStartDate = startDate;
 
@@ -147,6 +161,9 @@ namespace ContributionGraph
             {
                 this.calendarTable.RowStyles[i].SizeType = SizeType.AutoSize;
             }
+
+            // Cell Message positioning
+            this.cellMessage.Location = new Point(5, (7 * BOX_SIZE) + (MARGIN * 2 * 7) + padding + headerMonthLabelHeight);
         }
 
         private void Draw()
