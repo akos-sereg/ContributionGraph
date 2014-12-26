@@ -33,7 +33,8 @@ namespace ContributionGraph
             set
             {
                 _dataSource = value;
-                Draw();
+                this.Reset();
+                this.Draw();
             }
         }
 
@@ -166,6 +167,18 @@ namespace ContributionGraph
 
             // Cell Message positioning
             this.cellMessage.Location = new Point(5, (7 * BOX_SIZE) + (MARGIN * 2 * 7) + padding + headerMonthLabelHeight);
+        }
+
+        public void Reset()
+        {
+            for (int week = 0; week != this.DisplayedWeeks + 1; week++)
+            {
+                for (int dayOfWeek = 0; dayOfWeek != 7; dayOfWeek++)
+                {
+                    DayPanel dayPanel = (DayPanel)this.calendarTable.GetControlFromPosition(week, dayOfWeek);
+                    dayPanel.Reset();
+                }
+            }
         }
 
         private void Draw()

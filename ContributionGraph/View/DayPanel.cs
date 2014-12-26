@@ -59,6 +59,12 @@ namespace ContributionGraph.View
             }
         }
 
+        public void Reset()
+        {
+            this.Color = CalendarView.DEFAULT_COLOR;
+            this.Contribution = null;
+        }
+
         void DayPanel_MouseLeave(object sender, EventArgs e)
         {
             this.BackColor = _color;
