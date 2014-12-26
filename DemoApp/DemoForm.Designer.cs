@@ -1,4 +1,4 @@
-﻿namespace ContributionGraph
+﻿namespace ContributionGraph.DemoApp
 {
     partial class DemoForm
     {

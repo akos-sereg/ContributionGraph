@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ContributionGraph.Model;
 
-namespace ContributionGraph
+namespace ContributionGraph.DemoApp
 {
     public partial class DemoForm : Form
     {

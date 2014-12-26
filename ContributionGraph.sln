@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContributionGraph", "ContributionGraph\ContributionGraph.csproj", "{EFDEFC55-AF19-4A95-B3AF-2927CEEC9A2D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DemoApp", "DemoApp\DemoApp.csproj", "{7C05E16B-91B8-4540-88EE-E52F513E821B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{EFDEFC55-AF19-4A95-B3AF-2927CEEC9A2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFDEFC55-AF19-4A95-B3AF-2927CEEC9A2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFDEFC55-AF19-4A95-B3AF-2927CEEC9A2D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C05E16B-91B8-4540-88EE-E52F513E821B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C05E16B-91B8-4540-88EE-E52F513E821B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C05E16B-91B8-4540-88EE-E52F513E821B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C05E16B-91B8-4540-88EE-E52F513E821B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
