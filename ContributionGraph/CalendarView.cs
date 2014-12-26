@@ -77,6 +77,8 @@ namespace ContributionGraph
             this.Controls.Clear();
             this.InitializeComponent();
 
+            this.Cursor = Cursors.Hand;
+
             DateTime startDate = EndDate.AddDays(-7 * this.DisplayedWeeks);
             DateTime originalStartDate = startDate;
 
@@ -115,7 +117,7 @@ namespace ContributionGraph
 
                     if (originalStartDate > dayPanel.Date)
                     {
-                        dayPanel.BackColor = Color.White;
+                        dayPanel.Color = Color.White;
                     }
 
                     this.calendarTable.Controls.Add(dayPanel, week, dayOfWeek);
@@ -179,7 +181,7 @@ namespace ContributionGraph
                 if (dayPanel != null)
                 {
                     dayPanel.Contribution = item;
-                    dayPanel.BackColor = ColorProvider.GetColor(item, this.DataSource);
+                    dayPanel.Color = ColorProvider.GetColor(item, this.DataSource);
                 }
             }
         }
