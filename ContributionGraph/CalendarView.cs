@@ -188,7 +188,7 @@ namespace ContributionGraph
                 return;
             }
 
-            foreach (ContributionItem item in this.DataSource)
+            foreach (ContributionItem item in this.DataSource.Aggregated)
             {
                 DayPanel dayPanel = DayPanelFor(item.Date);
                 if (dayPanel != null)
