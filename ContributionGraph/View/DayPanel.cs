@@ -34,12 +34,18 @@ namespace ContributionGraph.View
             }
         }
 
+        private Color _defaultColor;
+
+        private Color _defaultColorHover;
+
         #endregion
 
-        public DayPanel(Label cellMessage, int boxSize, int margin, Color color, DateTime date)
+        public DayPanel(Label cellMessage, int boxSize, int margin, Color color, Color defaultColor, Color defaultColorHover, DateTime date)
         {
             this._cellMessage = cellMessage;
             this._color = color;
+            this._defaultColor = defaultColor;
+            this._defaultColorHover = defaultColorHover;
 
             this.BackColor = color;
             this.Margin = new Padding(margin);
@@ -61,7 +67,7 @@ namespace ContributionGraph.View
 
         public void Reset()
         {
-            this.Color = CalendarView.DEFAULT_COLOR;
+            this.Color = _defaultColor;
             this.Contribution = null;
         }
 
@@ -73,9 +79,9 @@ namespace ContributionGraph.View
 
         void DayPanel_MouseEnter(object sender, EventArgs e)
         {
-            if (_color == CalendarView.DEFAULT_COLOR)
+            if (_color == _defaultColor)
             {
-                this.BackColor = Color.FromArgb(220, 220, 220);
+                this.BackColor = this._defaultColorHover;
             }
 
             this._cellMessage.Text = string.Format("{0}: {1}", 

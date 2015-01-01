@@ -17,9 +17,9 @@ namespace ContributionGraph.Controller
             { 15, Color.FromArgb(30, 104, 35) },
         };
 
-        public Color GetColor(Model.ContributionItem contributionItem, Model.ContributionList contributionList)
+        public Color GetColor(Color defaultColor, Model.ContributionItem contributionItem, Model.ContributionList contributionList)
         {
-            var color = CalendarView.DEFAULT_COLOR;
+            var color = defaultColor;
 
             Thresholds.OrderBy(x => x.Key).ToList().ForEach(x => 
                 {

@@ -10,6 +10,6 @@ namespace ContributionGraph.Controller
 {
     public interface IColorProvider
     {
-        Color GetColor(ContributionItem contributionItem, ContributionList contributionList);
+        Color GetColor(Color defaultColor, ContributionItem contributionItem, ContributionList contributionList);
     }
 }

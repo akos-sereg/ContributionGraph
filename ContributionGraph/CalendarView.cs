@@ -16,13 +16,42 @@ namespace ContributionGraph
 {
     public partial class CalendarView : UserControl
     {
-        public static readonly Color DEFAULT_COLOR = Color.FromArgb(238, 238, 238);
         private readonly int MARGIN = 1;
         private readonly int BOX_SIZE = 12;
 
         private readonly List<int> VisibleMonths = new List<int> { 0, 2, 5, 8, 11 };
 
         public IColorProvider ColorProvider { get; set; }
+
+        private Color _defaultColorHover;
+        public Color DefaultColorHover
+        {
+            get
+            {
+                return _defaultColorHover;
+            }
+            set
+            {
+                _defaultColorHover = value;
+                this.InitializeLayout();
+                this.Resize();
+            }
+        }
+
+        private Color _defaultColor;
+        public Color DefaultColor 
+        {
+            get 
+            {
+                return _defaultColor;
+            }
+            set
+            {
+                _defaultColor = value;
+                this.InitializeLayout();
+                this.Resize();
+            }
+        }
 
         private ContributionList _dataSource;
         public ContributionList DataSource {
@@ -68,6 +97,8 @@ namespace ContributionGraph
 
         protected void SetDefaults()
         {
+            DefaultColor = Color.FromArgb(238, 238, 238);
+            DefaultColorHover = Color.FromArgb(220, 220, 220);
             ColorProvider = new DiscreteWeightedColorProvider();
             EndDate = DateTime.Now;
             DisplayedWeeks = 53;
@@ -109,7 +140,7 @@ namespace ContributionGraph
                 for (int dayOfWeek = 0; dayOfWeek != 7; dayOfWeek++)
                 {
                     dayPanelDate = startDate.AddDays(startDay);
-                    DayPanel dayPanel = new DayPanel(this.cellMessage, BOX_SIZE, MARGIN, DEFAULT_COLOR, dayPanelDate);
+                    DayPanel dayPanel = new DayPanel(this.cellMessage, BOX_SIZE, MARGIN, this.DefaultColor, this.DefaultColor, this.DefaultColorHover, dayPanelDate);
 
                     if (dayOfWeek == 0)
                     {
@@ -194,7 +225,7 @@ namespace ContributionGraph
                 if (dayPanel != null)
                 {
                     dayPanel.Contribution = item;
-                    dayPanel.Color = ColorProvider.GetColor(item, this.DataSource);
+                    dayPanel.Color = ColorProvider.GetColor(this.DefaultColor, item, this.DataSource);
                 }
             }
         }
