@@ -43,20 +43,21 @@ Screenshot of above example:
 # Configuration
 
 ```c#
-// If you want to use a different color-schema for rendering contribution cells (green ones by default), you can 
-// implement IColorProvider interface and tell Calendar View component to use that.
+// If you want to use a different color-schema for rendering contribution cells (green ones by 
+// default), you can implement IColorProvider interface and tell Calendar View component to use 
+// that.
 this.calendarView1.ColorProvider = new CustomColorProvider();
 
 // You can also set the color of the cells where there was no contribution (gray by default).
 this.calendarView1.DefaultColor = Color.Gray;
 this.calendarView1.DefaultColorHover = Color.LightGray;
 
-// By default, Calendar View displays 53 weeks. If you change this value, the control's width will be changed 
-// accordingly.
+// By default, Calendar View displays 53 weeks. If you change this value, the control's width will 
+// be changed accordingly.
 this.calendarView1.DisplayedWeeks = 10;
 
-// Calendar View displays weeks up till current date, by default. If you want to display contribution with different
-// date range, you might want to modify this property.
+// Calendar View displays weeks up till current date, by default. If you want to display contribution 
+// with different date range, you might want to modify this property.
 this.calendarView1.EndDate = DateTime.Now;
 ```
 
