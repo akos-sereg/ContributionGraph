@@ -16,7 +16,7 @@ namespace ContributionGraph
 {
     public partial class CalendarView : UserControl
     {
-        public static readonly Color DEFAULT_COLOR = Color.FromArgb(240, 240, 240);
+        public static readonly Color DEFAULT_COLOR = Color.FromArgb(238, 238, 238);
         private readonly int MARGIN = 1;
         private readonly int BOX_SIZE = 12;
 

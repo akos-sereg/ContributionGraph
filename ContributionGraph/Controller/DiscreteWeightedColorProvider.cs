@@ -11,10 +11,10 @@ namespace ContributionGraph.Controller
     {
         private static readonly Dictionary<long, Color> Thresholds = new Dictionary<long, Color>
         {
-            { 0, Color.FromArgb(204, 255, 152) },
-            { 5, Color.FromArgb(0, 255, 51) },
-            { 10, Color.FromArgb(0, 204, 51) },
-            { 15, Color.FromArgb(0, 153, 51) },
+            { 0, Color.FromArgb(214, 230, 133) },
+            { 5, Color.FromArgb(140, 198, 101) },
+            { 10, Color.FromArgb(68, 163, 64) },
+            { 15, Color.FromArgb(30, 104, 35) },
         };
 
         public Color GetColor(Model.ContributionItem contributionItem, Model.ContributionList contributionList)
