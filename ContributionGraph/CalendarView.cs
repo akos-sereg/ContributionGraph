@@ -233,7 +233,7 @@ namespace ContributionGraph
         private DayPanel DayPanelFor(DateTime dateTime)
         {
             DayPanel dayPanel = null;
-            for (int week = 0; week != this.DisplayedWeeks; week++)
+            for (int week = 0; week != this.DisplayedWeeks + 1; week++)
             {
                 for (int dayOfWeek = 0; dayOfWeek != 7; dayOfWeek++)
                 {
