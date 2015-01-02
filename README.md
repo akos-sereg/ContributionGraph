@@ -1,7 +1,7 @@
 Contribution Graph
 =================
 
-Calendar-based graph for .NET, similar that is used by Github to indicate weekly contribution.
+Calendar based heat map for .NET, similar to GitHub's contribution graph.
 
 # Usage
 
