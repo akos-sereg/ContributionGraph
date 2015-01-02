@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="Controller\DiscreteWeightedColorProvider.cs" />
     <Compile Include="Controller\IColorProvider.cs" />
+    <Compile Include="Model\Commit.cs" />
     <Compile Include="Model\ContributionItem.cs" />
     <Compile Include="Model\ContributionList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

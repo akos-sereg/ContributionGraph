@@ -16,6 +16,9 @@ namespace ContributionGraph
 {
     public partial class CalendarView : UserControl
     {
+        public delegate void ContributionSelectedEventHandler(ContributionItem contribution);
+        public event ContributionSelectedEventHandler OnContributionSelected;
+
         private readonly int MARGIN = 1;
         private readonly int BOX_SIZE = 12;
 
@@ -141,6 +144,13 @@ namespace ContributionGraph
                 {
                     dayPanelDate = startDate.AddDays(startDay);
                     DayPanel dayPanel = new DayPanel(this.cellMessage, BOX_SIZE, MARGIN, this.DefaultColor, this.DefaultColor, this.DefaultColorHover, dayPanelDate);
+                    dayPanel.Click += (x, y) => {
+                        ContributionSelectedEventHandler eventHandler = this.OnContributionSelected;
+                        if (eventHandler != null)
+                        {
+                            eventHandler(dayPanel.Contribution);
+                        }
+                    };
 
                     if (dayOfWeek == 0)
                     {
@@ -219,7 +229,7 @@ namespace ContributionGraph
                 return;
             }
 
-            foreach (ContributionItem item in this.DataSource.Aggregated)
+            foreach (ContributionItem item in this.DataSource)
             {
                 DayPanel dayPanel = DayPanelFor(item.Date);
                 if (dayPanel != null)
