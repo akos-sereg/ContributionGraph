@@ -61,3 +61,10 @@ this.calendarView1.DisplayedWeeks = 10;
 this.calendarView1.EndDate = DateTime.Now;
 ```
 
+# Events
+
+```c#
+// OnContributionSelected event is fired when user clicks on a green or gray cell
+this.calendarView1.OnContributionSelected += (contrib) => { MessageBox.Show(contrib.Subject); };
+```
+
