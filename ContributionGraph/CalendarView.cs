@@ -85,7 +85,20 @@ namespace ContributionGraph
             }
         }
 
-        public DateTime EndDate { get; set; }
+        private DateTime _endDate;
+        public DateTime EndDate
+        {
+            get
+            {
+                return _endDate;
+            }
+            set
+            {
+                this._endDate = value;
+                this.InitializeLayout();
+                this.Resize();
+            }
+        }
         
         public CalendarView()
         {
