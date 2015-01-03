@@ -4,7 +4,7 @@
         <id>ContributionGraph</id>
         <version>1.0.1</version>
         <title>Calendar based heat map for .NET, similar to GitHub's contribution graph.</title>
-        <authors>Akos</authors>
+        <authors>Akos Sereg</authors>
         <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
         <projectUrl>https://github.com/akos-sereg/ContributionGraph</projectUrl>
         <requireLicenseAcceptance>true</requireLicenseAcceptance>
