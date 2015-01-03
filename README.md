@@ -21,6 +21,18 @@ Screenshot of above example:
 
 ![Contribution Graph](https://raw.githubusercontent.com/akos-sereg/ContributionGraph/master/ContributionGraph/Docs/Screenshot.png "Screenshot")
 
+... or you can build ContributionList by adding Commit instances. These instances will be aggregated to ContributionItem instances in the background:
+
+```c#
+ContributionList data = new ContributionList();
+
+data.Add(new Commit { Date = Date = DateTime.Parse("2014-11-02"), Author = "akos-sereg", Title = "Commit message #1" });
+data.Add(new Commit { Date = Date = DateTime.Parse("2014-11-02"), Author = "akos-sereg", Title = "Commit message #2" });
+data.Add(new Commit { Date = Date = DateTime.Parse("2014-11-06"), Author = "akos-sereg", Title = "Commit message #3" });
+
+this.calendarView1.DataSource = data;
+```
+
 # Configuration
 
 ```c#
