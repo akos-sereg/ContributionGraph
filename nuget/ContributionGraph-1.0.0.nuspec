@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>ContributionGraph</id>
+        <version>1.0.0</version>
+        <title>Calendar based heat map for .NET, similar to GitHub's contribution graph.</title>
+        <authors>Akos</authors>
+        <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+        <projectUrl>https://github.com/akos-sereg/ContributionGraph</projectUrl>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <developmentDependency>true</developmentDependency>
+        <description>Calendar based heat map for .NET, similar to GitHub's contribution graph.</description>
+    </metadata>
+    <files>
+        <file src="..\ContributionGraph\bin\Release\ContributionGraph.dll" target="lib\ContributionGraph.dll" />
+    </files>
+</package>
