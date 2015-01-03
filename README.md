@@ -11,7 +11,7 @@ ContributionList data = new ContributionList {
     new ContributionItem { Date = DateTime.Parse("2014-11-05"), ContributionCount = 3, Subject = "B" },
     new ContributionItem { Date = DateTime.Parse("2014-11-06"), ContributionCount = 6, Subject = "C" },
     new ContributionItem { Date = DateTime.Parse("2014-11-09"), ContributionCount = 11, Subject = "D" },
-    new ContributionItem { Date = DateTime.Parse("2014-11-11"), ContributionCount = 16, Subject = "E" } 
+    new ContributionItem { Date = DateTime.Parse("2014-11-11"), ContributionCount = 16, Subject = "DayPanel.cs" } 
 };
 
 this.calendarView1.DataSource = data;
