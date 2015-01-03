@@ -2,6 +2,7 @@ Contribution Graph
 =================
 
 Calendar based heat map for .NET, similar to GitHub's contribution graph.
+In order to install this component, right click on your project in Visual Studio, select "Manage NuGet Packages...", and search for "ContributionGraph" in Online packages.
 
 # Usage
 
