@@ -69,6 +69,15 @@ namespace ContributionGraph.View
         {
             this.Color = _defaultColor;
             this.Contribution = null;
+
+            if (this.Date.ToString("yyyy-MM-dd").Equals(DateTime.Now.ToString("yyyy-MM-dd")))
+            {
+                this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            }
+            else
+            {
+                this.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            }
         }
 
         void DayPanel_MouseLeave(object sender, EventArgs e)
