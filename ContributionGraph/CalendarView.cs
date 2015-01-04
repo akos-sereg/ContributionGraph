@@ -20,7 +20,6 @@ namespace ContributionGraph
         public event ContributionSelectedEventHandler OnContributionSelected;
 
         private readonly int MARGIN = 1;
-        private readonly int BOX_SIZE = 12;
 
         private readonly List<int> VisibleMonths = new List<int> { 0, 2, 5, 8, 11 };
 
@@ -51,6 +50,21 @@ namespace ContributionGraph
             set
             {
                 _defaultColor = value;
+                this.InitializeLayout();
+                this.Resize();
+            }
+        }
+
+        private int _cellSize;
+        public int CellSize
+        {
+            get
+            {
+                return _cellSize;
+            }
+            set
+            {
+                _cellSize = value;
                 this.InitializeLayout();
                 this.Resize();
             }
@@ -113,11 +127,12 @@ namespace ContributionGraph
 
         protected void SetDefaults()
         {
-            DefaultColor = Color.FromArgb(238, 238, 238);
-            DefaultColorHover = Color.FromArgb(220, 220, 220);
-            ColorProvider = new DiscreteWeightedColorProvider();
-            EndDate = DateTime.Now;
-            DisplayedWeeks = 53;
+            this.DefaultColor = Color.FromArgb(238, 238, 238);
+            this.DefaultColorHover = Color.FromArgb(220, 220, 220);
+            this.ColorProvider = new DiscreteWeightedColorProvider();
+            this.EndDate = DateTime.Now;
+            this.DisplayedWeeks = 53;
+            this.CellSize = 12;
         }
 
         protected void InitializeLayout()
@@ -156,7 +171,7 @@ namespace ContributionGraph
                 for (int dayOfWeek = 0; dayOfWeek != 7; dayOfWeek++)
                 {
                     dayPanelDate = startDate.AddDays(startDay);
-                    DayPanel dayPanel = new DayPanel(this.cellMessage, BOX_SIZE, MARGIN, this.DefaultColor, this.DefaultColor, this.DefaultColorHover, dayPanelDate);
+                    DayPanel dayPanel = new DayPanel(this.cellMessage, this.CellSize, MARGIN, this.DefaultColor, this.DefaultColor, this.DefaultColorHover, dayPanelDate);
                     dayPanel.Click += (x, y) => {
                         ContributionSelectedEventHandler eventHandler = this.OnContributionSelected;
                         if (eventHandler != null)
@@ -186,7 +201,7 @@ namespace ContributionGraph
                 {
                     Label monthLabel = new Label();
                     monthLabel.Text = CultureInfo.CurrentCulture.DateTimeFormat.GetAbbreviatedMonthName(currentMonth + 1);
-                    monthLabel.Location = new System.Drawing.Point((week * BOX_SIZE) + (2 * MARGIN * week), 4);
+                    monthLabel.Location = new System.Drawing.Point((week * this.CellSize) + (2 * MARGIN * week), 4);
                     monthLabel.ForeColor = Color.Gray;
                     this.Controls.Add(monthLabel);
 
@@ -202,8 +217,8 @@ namespace ContributionGraph
             int headerMonthLabelHeight = 15;
             int padding = 5;
 
-            int width = ((this.DisplayedWeeks + 1) * BOX_SIZE) + (MARGIN * 2 * (this.DisplayedWeeks + 1)) + padding;
-            int height = (7 * BOX_SIZE) + (MARGIN * 2 * 7) + padding + this.cellMessage.Height + headerMonthLabelHeight;
+            int width = ((this.DisplayedWeeks + 1) * this.CellSize) + (MARGIN * 2 * (this.DisplayedWeeks + 1)) + padding;
+            int height = (7 * this.CellSize) + (MARGIN * 2 * 7) + padding + this.cellMessage.Height + headerMonthLabelHeight;
 
             this.MinimumSize = new Size(width, height);
             this.MaximumSize = new Size(width, height);
@@ -211,8 +226,8 @@ namespace ContributionGraph
             this.Width = width;
             this.Height = height;
 
-            this.calendarTable.Width = ((this.DisplayedWeeks + 1) * BOX_SIZE) + (MARGIN * 2 * (this.DisplayedWeeks + 1)) + padding;
-            this.calendarTable.Height = (7 * BOX_SIZE) + (MARGIN * 2 * 7) + padding;
+            this.calendarTable.Width = ((this.DisplayedWeeks + 1) * this.CellSize) + (MARGIN * 2 * (this.DisplayedWeeks + 1)) + padding;
+            this.calendarTable.Height = (7 * this.CellSize) + (MARGIN * 2 * 7) + padding;
 
             for (int i = 0; i != 7; i++)
             {
@@ -220,7 +235,7 @@ namespace ContributionGraph
             }
 
             // Cell Message positioning
-            this.cellMessage.Location = new Point(5, (7 * BOX_SIZE) + (MARGIN * 2 * 7) + padding + headerMonthLabelHeight);
+            this.cellMessage.Location = new Point(5, (7 * this.CellSize) + (MARGIN * 2 * 7) + padding + headerMonthLabelHeight);
         }
 
         public void Reset()
