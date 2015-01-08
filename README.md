@@ -51,6 +51,9 @@ this.calendarView1.DefaultColorHover = Color.LightGray;
 // be changed accordingly.
 this.calendarView1.DisplayedWeeks = 10;
 
+// Cell sizes are 12x12 pixels by default, you can make cells bigger/smaller by changing CellSize property
+this.calendarView1.CellSize = 8;
+
 // Calendar View displays weeks up till current date, by default. If you want to display contribution 
 // with different date range, you might want to modify this property.
 this.calendarView1.EndDate = DateTime.Now;
