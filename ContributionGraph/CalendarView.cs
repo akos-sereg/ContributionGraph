@@ -19,9 +19,15 @@ namespace ContributionGraph
         public delegate void ContributionSelectedEventHandler(ContributionItem contribution);
         public event ContributionSelectedEventHandler OnContributionSelected;
 
+        #region Constants
+
         private readonly int MARGIN = 1;
 
         private readonly List<int> VisibleMonths = new List<int> { 0, 2, 5, 8, 11 };
+
+        #endregion
+
+        #region Properties
 
         public IColorProvider ColorProvider { get; set; }
 
@@ -113,13 +119,21 @@ namespace ContributionGraph
                 this.Resize();
             }
         }
-        
+
+        #endregion
+
+        #region Constructors
+
         public CalendarView()
         {
             SetDefaults();
 
             InitializeLayout();
         }
+
+        #endregion
+
+        #region Initialize
 
         private void CalendarView_Load(object sender, EventArgs e)
         {
@@ -212,6 +226,10 @@ namespace ContributionGraph
             }
         }
 
+        #endregion
+
+        #region Layout functions
+
         protected new void Resize()
         {
             int headerMonthLabelHeight = 15;
@@ -268,6 +286,10 @@ namespace ContributionGraph
             }
         }
 
+        #endregion
+
+        #region Helpers
+
         private DayPanel DayPanelFor(DateTime dateTime)
         {
             DayPanel dayPanel = null;
@@ -286,5 +308,7 @@ namespace ContributionGraph
 
             return null;
         }
+
+        #endregion
     }
 }

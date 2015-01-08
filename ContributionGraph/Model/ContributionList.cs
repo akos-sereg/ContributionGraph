@@ -14,7 +14,7 @@ namespace ContributionGraph.Model
             if (existingItem != null)
             {
                 existingItem.ContributionCount += newItem.ContributionCount;
-                existingItem.Subject = "Multiple contributions";
+                existingItem.Subject = string.Format("{0} contribution{1}", existingItem.ContributionCount, existingItem.ContributionCount > 1 ? "s" : "");
             }
             else
             {
@@ -29,11 +29,11 @@ namespace ContributionGraph.Model
             if (existingItem != null)
             {
                 existingItem.Commits.Add(commit);
-                existingItem.Subject = "Multiple contributions";
+                existingItem.Subject = string.Format("{0} contribution{1}", existingItem.ContributionCount, existingItem.ContributionCount > 1 ? "s" : "");
             }
             else
             {
-                base.Add(new ContributionItem { Commits = new List<Commit> { commit }, Date = commit.Date, Subject = "Commit" });
+                base.Add(new ContributionItem { Commits = new List<Commit> { commit }, Date = commit.Date, Subject = "1 contribution" });
             }
         }
     }

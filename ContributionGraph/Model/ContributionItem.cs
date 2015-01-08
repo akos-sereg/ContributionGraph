@@ -38,10 +38,7 @@ namespace ContributionGraph.Model
 
         public override string ToString()
         {
-            return string.Format("{0} contribution{1} for {2}", 
-                this.ContributionCount, 
-                this.ContributionCount > 1 ? "s" : string.Empty, 
-                this.Subject);
+            return this.Subject;
         }
     }
 }
