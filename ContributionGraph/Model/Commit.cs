@@ -16,6 +16,8 @@ namespace ContributionGraph.Model
 
         public string AvatarUrl { get; set; }
 
+        public string Sha { get; set; }
+
         public override string ToString()
         {
             return this.Title;
