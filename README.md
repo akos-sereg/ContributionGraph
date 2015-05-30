@@ -1,3 +1,5 @@
+[![Version](https://img.shields.io/nuget/v/ContributionGraph.svg)](https://www.nuget.org/packages/ContributionGraph)
+
 Contribution Graph
 =================
 
